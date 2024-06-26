@@ -1,0 +1,31 @@
+Table employees {
+    id int [pk, increment]
+    firstName varchar
+    lastName varchar
+    computerId int [ref: > "computers"."id"]
+    departmentId int [ref: > "departments"."id"]
+    locationId int [ref: > "locations"."id"]
+}
+Table computers {
+    id int [pk, increment]
+    model varchar
+    year int
+}
+Table departments {
+    id int [pk, increment]
+    name varchar
+}
+Table locations {
+    id int [pk, increment]
+    location varchar
+}
+Table customers {
+    id int [pk, increment]
+    name varchar
+}
+
+Table employeeCustomers {
+    id int [pk, increment]
+    customerId int [ref: > "customers"."id"]
+    employeeId int [ref: > "employees"."id"]
+}
